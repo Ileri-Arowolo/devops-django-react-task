@@ -1,0 +1,20 @@
+version: "3.9"
+
+services:
+  djangoapp:
+    image: ileriarowolo/djangoapp:latest
+     restart: always
+    command: ["python", "manage.py", "runserver"]
+    ports:
+      - "9700:8000"
+   network: hngnetwork
+  frontend:
+     reactapp:  ileriarowolo/reactapp
+      restart: always
+    command: ["npm", "start"]
+    ports:
+      - "7700:3000"
+    network: hngnetwork
+    networks:
+     hngnetwork: 
+         driver:  bridge
