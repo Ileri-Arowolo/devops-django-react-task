@@ -1,7 +1,7 @@
 version: "3"
 
 services:
- djangoapp:
+ backend:
   image: ileriarowolo/djangoapp
   restart: always
   command: ["python", "manage.py", "runserver"]
